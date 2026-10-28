@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { ScrollView } from 'react-native';
+import Movie from './components/Movie.js';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+class AllMovies extends React.Component {
+    render() {
+        return (
+            <ScrollView>
+                <Movie
+                    title="Doctor Sleep"
+                    year={2019}
+                    icon_name="skull"
+                    icon_color="#850101"
+                    poster={require("./img/doctor-sleep.jpg")}
+                    />
+                <Movie
+                    title="Midway"
+                    year={2020}
+                    icon_name="person-rifle"
+                    icon_color="#850101"
+                    poster={require("./img/midway.jpg")}
+                />
+                <Movie
+                    title="A Minecraft Movie"
+                    year={2025}
+                    icon_name="cube"
+                    icon_color="#850101"
+                    poster={{
+                        uri: "https://images.techeblog.com/wp-content/uploads/2025/03/01093040/a-minecraft-movie-final-trailer.jpg"
+                    }}
+                />
+
+            </ScrollView>
+        )
+    }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default AllMovies;
